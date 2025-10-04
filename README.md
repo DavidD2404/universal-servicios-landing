@@ -1,127 +1,112 @@
-### Step 1: Set Up Your Next.js Project
+# Universal Servicios Landing Page
 
-1. **Open your terminal** and navigate to the directory where you want to create your project.
+Landing page profesional para Universal Servicios, especializada en servicios de seguridad y climatización.
 
-2. **Create a new Next.js project** using the following command:
-   ```bash
-   npx create-next-app@latest universal-servicios-landing --typescript
-   ```
+## 🚀 Tecnologías Utilizadas
 
-3. **Navigate into your project directory**:
-   ```bash
-   cd universal-servicios-landing
-   ```
+- **Next.js 14** - Framework de React con App Router
+- **TypeScript** - Tipado estático para JavaScript
+- **Tailwind CSS** - Framework de CSS utilitario
+- **React** - Biblioteca de interfaz de usuario
 
-4. **Install Tailwind CSS** by following these commands:
-   ```bash
-   npm install -D tailwindcss postcss autoprefixer
-   npx tailwindcss init -p
-   ```
+## 📋 Características
 
-5. **Configure Tailwind CSS** by editing the `tailwind.config.js` file to include the paths to your template files:
-   ```javascript
-   /** @type {import('tailwindcss').Config} */
-   module.exports = {
-     content: [
-       "./pages/**/*.{js,ts,jsx,tsx}",
-       "./components/**/*.{js,ts,jsx,tsx}",
-     ],
-     theme: {
-       extend: {
-         colors: {
-           primary: '#1D4ED8', // Customize your primary color
-           secondary: '#FBBF24', // Customize your secondary color
-           neutral: {
-             50: '#F9FAFB',
-             600: '#4B5563',
-           },
-         },
-       },
-     },
-     plugins: [],
-   }
-   ```
+- ✅ Diseño responsivo y moderno
+- ✅ Componentes reutilizables
+- ✅ Optimización SEO
+- ✅ Galería de trabajos realizados
+- ✅ Botón de contacto WhatsApp
+- ✅ Secciones: Hero, Servicios, Acerca de, Galería, Footer
 
-6. **Add Tailwind directives** to your global CSS file. Open `styles/globals.css` and add the following lines at the top:
-   ```css
-   @tailwind base;
-   @tailwind components;
-   @tailwind utilities;
-   ```
+## 🛠️ Instalación y Desarrollo
 
-### Step 2: Create the Project Structure
+### Prerrequisitos
+- Node.js 18+ instalado
+- npm o yarn como gestor de paquetes
 
-1. **Create a `components` directory** in the root of your project:
-   ```bash
-   mkdir components
-   ```
-
-2. **Create the `About.tsx` file** inside the `components` directory:
-   ```bash
-   touch components/About.tsx
-   ```
-
-3. **Copy the provided `About.tsx` code** into the newly created file.
-
-### Step 3: Update the Main Page
-
-1. **Open the `pages/index.tsx` file** and import the `About` component. Update the file to include the `About` section:
-   ```tsx
-   import Head from 'next/head';
-   import About from '../components/About';
-
-   export default function Home() {
-     return (
-       <div>
-         <Head>
-           <title>Universal Servicios</title>
-           <meta name="description" content="Servicios de seguridad y climatización" />
-           <link rel="icon" href="/favicon.ico" />
-         </Head>
-
-         <main>
-           <About />
-         </main>
-       </div>
-     );
-   }
-   ```
-
-### Step 4: Run Your Project
-
-1. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-
-2. **Open your browser** and navigate to `http://localhost:3000` to see your landing page with the `About` section.
-
-### Step 5: Create a Workspace in Visual Studio Code
-
-1. **Open Visual Studio Code**.
-
-2. **Open the project folder** by selecting `File` > `Open Folder...` and navigating to your `universal-servicios-landing` directory.
-
-3. **Save the workspace** by selecting `File` > `Save Workspace As...` and giving it a name, e.g., `UniversalServicios.code-workspace`.
-
-### Step 6: Add WhatsApp Button (Optional)
-
-If you want to add a WhatsApp button for easy contact, you can add it to your `About.tsx` component or create a new component for it. Here’s a simple example of how to add a WhatsApp button:
-
-```tsx
-// Add this in About.tsx or create a new component
-<div className="text-center mt-8">
-  <a
-    href="https://wa.me/549XXXXXXXXXX" // Replace with your WhatsApp number
-    className="bg-green-500 text-white py-2 px-4 rounded-lg"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Contáctanos por WhatsApp
-  </a>
-</div>
+### Clonar el repositorio
+```bash
+git clone https://github.com/DavidD2404/universal-servicios-landing.git
+cd universal-servicios-landing
 ```
 
-### Conclusion
+### Instalar dependencias
+```bash
+npm install
+# o
+yarn install
+```
 
-You now have a basic Next.js project set up with TypeScript and Tailwind CSS, including the `About.tsx` component. You can further customize the styles and content as needed. If you have any questions or need further assistance, feel free to ask!
+### Ejecutar en desarrollo
+```bash
+npm run dev
+# o
+yarn dev
+```
+
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
+
+## 📁 Estructura del Proyecto
+
+```
+universal-servicios-landing/
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── About.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Gallery.tsx
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Services.tsx
+│   │   └── WhatsAppButton.tsx
+│   ├── types/
+│   │   └── index.ts
+│   └── utils/
+│       └── constants.ts
+├── public/
+│   ├── images/
+│   └── favicon files
+└── config files
+```
+
+## 🎨 Componentes
+
+- **Header**: Navegación principal
+- **Hero**: Sección de bienvenida con llamada a la acción
+- **Services**: Listado de servicios ofrecidos
+- **About**: Información sobre la empresa
+- **Gallery**: Galería de trabajos realizados
+- **Footer**: Información de contacto y enlaces
+- **WhatsAppButton**: Botón flotante de contacto
+
+## 📱 Contacto
+
+Para modificar la información de contacto, edita el archivo `src/utils/constants.ts`.
+
+## 🚀 Despliegue
+
+### Build para producción
+```bash
+npm run build
+# o
+yarn build
+```
+
+### Iniciar servidor de producción
+```bash
+npm start
+# o
+yarn start
+```
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
+## 👨‍💻 Desarrollado por
+
+David da Silva - [@DavidD2404](https://github.com/DavidD2404)
