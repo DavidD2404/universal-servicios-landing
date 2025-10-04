@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Protegé lo que más te importa con{' '}
-            <span className="text-secondary">soluciones de seguridad</span>
+            <span className="text-accent-light">soluciones de seguridad</span>
           </h1>
           
           <p className="text-lg md:text-xl text-neutral-100 mb-8 max-w-2xl mx-auto">
@@ -54,15 +54,15 @@ export default function Hero() {
           {/* Trust indicators */}
           <div className="mt-12 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">+500</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent-light mb-1">+500</div>
               <div className="text-sm md:text-base text-neutral-200">Clientes satisfechos</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">+10</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent-light mb-1">+10</div>
               <div className="text-sm md:text-base text-neutral-200">Años de experiencia</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">100%</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent-light mb-1">100%</div>
               <div className="text-sm md:text-base text-neutral-200">Garantía de calidad</div>
             </div>
           </div>
