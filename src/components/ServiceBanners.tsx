@@ -111,7 +111,8 @@ export default function ServiceBanners() {
                         clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 0 100%)'
                       }}
                       priority
-                      quality={85}
+                      loading="eager"
+                      quality={75}
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
@@ -129,7 +130,9 @@ export default function ServiceBanners() {
                 alt="Redes de seguridad"
                 fill
                 className="object-cover opacity-20"
-                quality={75}
+                priority
+                loading="eager"
+                quality={60}
                 sizes="100vw"
               />
             </div>
@@ -213,8 +216,9 @@ export default function ServiceBanners() {
                   alt="Estructuras de acero"
                   fill
                   className="object-cover opacity-30"
-                  quality={80}
+                  quality={60}
                   sizes="100vw"
+                  loading="lazy"
                 />
               </div>
 
@@ -288,8 +292,9 @@ export default function ServiceBanners() {
                 alt="Estructuras"
                 fill
                 className="object-cover opacity-20"
-                quality={75}
+                quality={60}
                 sizes="100vw"
+                loading="lazy"
               />
             </div>
 
@@ -387,8 +392,9 @@ export default function ServiceBanners() {
                       style={{
                         clipPath: 'polygon(0 0, 90% 0, 100% 100%, 0 100%)'
                       }}
-                      quality={85}
+                      quality={60}
                       sizes="(max-width: 768px) 100vw, 45vw"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -460,8 +466,9 @@ export default function ServiceBanners() {
                 alt="Aires acondicionados"
                 fill
                 className="object-cover opacity-20"
-                quality={75}
+                quality={60}
                 sizes="100vw"
+                loading="lazy"
               />
             </div>
 
