@@ -112,7 +112,6 @@ export default function Footer() {
             <h3 className="font-heading font-bold text-lg mb-4">Servicios</h3>
             <ul className="space-y-2 text-neutral-300">
               <li>Redes de Seguridad</li>
-              <li>Estructuras de Aluminio</li>
               <li>Estructuras de Acero</li>
               <li>Aires Acondicionados</li>
             </ul>

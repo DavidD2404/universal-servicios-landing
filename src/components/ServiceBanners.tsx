@@ -110,6 +110,9 @@ export default function ServiceBanners() {
                       style={{
                         clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 0 100%)'
                       }}
+                      priority
+                      quality={85}
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                 </div>
@@ -126,6 +129,8 @@ export default function ServiceBanners() {
                 alt="Redes de seguridad"
                 fill
                 className="object-cover opacity-20"
+                quality={75}
+                sizes="100vw"
               />
             </div>
 
@@ -208,6 +213,8 @@ export default function ServiceBanners() {
                   alt="Estructuras de acero"
                   fill
                   className="object-cover opacity-30"
+                  quality={80}
+                  sizes="100vw"
                 />
               </div>
 
@@ -281,6 +288,8 @@ export default function ServiceBanners() {
                 alt="Estructuras"
                 fill
                 className="object-cover opacity-25"
+                quality={75}
+                sizes="100vw"
               />
             </div>
 
@@ -350,73 +359,92 @@ export default function ServiceBanners() {
         >
           {/* Desktop */}
           <div className="hidden md:block">
-            <div className="relative h-[600px] overflow-hidden">
+            <div className="relative h-[600px] bg-[#0A2647] overflow-hidden">
               {/* Logo - Fixed Position */}
-              <div className="absolute top-12 left-16 z-30">
+              <div className="absolute top-12 left-16 z-20">
                 <span className="block font-heading font-extrabold text-3xl text-white">UNIVERSAL</span>
                 <span className="block font-heading font-medium text-yellow-400 text-xl">SERVICIOS</span>
               </div>
 
               <div className="absolute inset-0 flex">
-                {/* Left Side - Content with Navy Blue Background */}
-                <div className="w-[50%] bg-[#0A2647] flex items-center pl-16 text-white z-10">
-                  <div className="pt-16">
-                    <h2 className="font-heading text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                      CONFORT Y AIRE<br />PURO PARA<br />TU HOGAR
-                    </h2>
-                    <p className="text-xl mb-8 text-neutral-200">
-                      Instalación, Mantenimiento<br />y Reparación
-                    </p>
-                    <button
-                      onClick={() => handleWhatsApp('Aires Acondicionados')}
-                      className="bg-yellow-400 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-all shadow-xl"
-                    >
-                      ¡SOLICITAR TÉCNICO AHORA!
-                    </button>
+                {/* Left Side - Image with Blue Diagonal (45%) */}
+                <div className="w-[45%] relative">
+                  {/* Blue diagonal background - invertido */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-500"
+                    style={{
+                      clipPath: 'polygon(0 0, 90% 0, 100% 100%, 0 100%)'
+                    }}
+                  />
+                  {/* Image overlay */}
+                  <div className="absolute inset-0">
+                    <Image
+                      src="/images/gallery/trabajo-5.jpg"
+                      alt="Aires acondicionados"
+                      fill
+                      className="object-cover mix-blend-multiply opacity-80"
+                      style={{
+                        clipPath: 'polygon(0 0, 90% 0, 100% 100%, 0 100%)'
+                      }}
+                      quality={85}
+                      sizes="(max-width: 768px) 100vw, 45vw"
+                    />
                   </div>
                 </div>
 
-                {/* Right Side - Full Yellow with Diagonal Cut and Large Icons */}
-                <div className="w-[50%] relative bg-yellow-400">
-                  {/* Diagonal shape overlay on the yellow */}
-                  <div
-                    className="absolute inset-0 bg-yellow-400 flex items-center justify-center"
-                    style={{
-                      clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%)'
-                    }}
-                  >
-                    <div className="text-primary pr-12">
-                      {/* Large CTA Button in Speech Bubble */}
-                      <div className="relative bg-primary text-yellow-400 px-10 py-6 rounded-3xl mb-12 shadow-2xl">
-                        <div className="font-heading font-bold text-3xl text-center">
-                          ¡SOLICITAR<br />TÉNICO AHORA!
-                        </div>
-                        {/* Speech bubble tail */}
-                        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[20px] border-t-primary"></div>
-                      </div>
+                {/* Right Side - Content (55%) */}
+                <div className="w-[55%] flex items-center pl-12 pr-16 py-12 text-white z-10">
+                  <div className="pt-16">
+                    <h2 className="font-heading text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                      CLIMA PERFECTO<br />TODO EL AÑO
+                    </h2>
+                    <p className="text-xl mb-8 text-blue-300">
+                      Instalación, mantenimiento y reparación profesional
+                    </p>
 
-                      {/* Icons with Text */}
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-4">
-                          <span className="text-7xl">🌡️</span>
-                          <div className="text-left">
-                            <div className="font-bold text-xl">Temperatura</div>
-                            <div className="font-bold text-xl">Ideal</div>
-                          </div>
+                    {/* Features con iconos */}
+                    <div className="mb-6 space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                          <svg className="w-4 h-4 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7" />
+                          </svg>
                         </div>
-                        <div className="flex items-center gap-4">
-                          <span className="text-7xl">🌿</span>
-                          <div className="text-left">
-                            <div className="font-bold text-xl">Ambiente</div>
-                            <div className="font-bold text-xl">Saludable</div>
-                          </div>
+                        <span className="text-lg font-medium">Instalación certificada</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                          <svg className="w-4 h-4 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7" />
+                          </svg>
                         </div>
+                        <span className="text-lg font-medium">Equipos de primeras marcas</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                          <svg className="w-4 h-4 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="text-lg font-medium">Mantenimiento preventivo</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                          <svg className="w-4 h-4 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="text-lg font-medium">Asesoramiento técnico</span>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Small decorative star */}
-                  <div className="absolute bottom-8 right-8 text-6xl opacity-80">✨</div>
+                    <button
+                      onClick={() => handleWhatsApp('Aires Acondicionados')}
+                      className="bg-yellow-400 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-all shadow-xl hover:shadow-2xl"
+                    >
+                      ¡Solicitar Técnico Ahora!
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -424,30 +452,64 @@ export default function ServiceBanners() {
 
           {/* Mobile */}
           <div className="md:hidden relative bg-[#0A2647] overflow-hidden min-h-[550px]">
+            {/* Background image with overlay */}
+            <div className="absolute inset-0">
+              <Image
+                src="/images/gallery/trabajo-5.jpg"
+                alt="Aires acondicionados"
+                fill
+                className="object-cover opacity-20"
+                quality={75}
+                sizes="100vw"
+              />
+            </div>
+
             {/* Content */}
-            <div className="relative z-10 p-6 py-10 text-white">
+            <div className="relative z-10 p-6 py-10 pb-12 text-white">
               <div className="mb-6">
                 <span className="block font-heading font-extrabold text-2xl">UNIVERSAL</span>
                 <span className="block font-heading font-medium text-yellow-400 text-lg">SERVICIOS</span>
               </div>
               <h2 className="font-heading text-4xl font-bold mb-4 leading-tight">
-                CONFORT Y AIRE<br />PURO PARA<br />TU HOGAR
+                CLIMA PERFECTO<br />TODO EL AÑO
               </h2>
-              <p className="text-lg mb-6">
-                Instalación, Mantenimiento y Reparación
+              <p className="text-base mb-6 text-blue-300">
+                Instalación, mantenimiento y reparación profesional
               </p>
 
-              {/* Features with icons */}
-              <div className="mb-6 flex justify-around bg-yellow-400/20 backdrop-blur-sm rounded-2xl p-4">
-                <div className="text-center">
-                  <div className="text-5xl mb-2">🌡️</div>
-                  <div className="text-xs font-bold">Temperatura</div>
-                  <div className="text-xs font-bold text-yellow-400">Ideal</div>
+              {/* Features con iconos mobile */}
+              <div className="mb-6 space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium">Instalación certificada</span>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl mb-2">🌿</div>
-                  <div className="text-xs font-bold">Ambiente</div>
-                  <div className="text-xs font-bold text-yellow-400">Saludable</div>
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium">Equipos de primeras marcas</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium">Mantenimiento preventivo</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium">Asesoramiento técnico</span>
                 </div>
               </div>
 
@@ -455,7 +517,7 @@ export default function ServiceBanners() {
                 onClick={() => handleWhatsApp('Aires Acondicionados')}
                 className="w-full bg-yellow-400 text-primary px-6 py-4 rounded-full font-bold text-base hover:bg-yellow-500 transition-colors shadow-lg"
               >
-                ¡SOLICITAR TÉCNICO AHORA!
+                ¡Solicitar Técnico Ahora!
               </button>
             </div>
           </div>

@@ -2,6 +2,33 @@
 
 import { SERVICES, FEATURED_SERVICE } from '@/utils/constants';
 import { CONTACT_INFO } from '@/utils/constants';
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
+function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { duration: 2000 });
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, motionValue, value]);
+
+  useEffect(() => {
+    const unsubscribe = springValue.on('change', (latest) => {
+      if (ref.current) {
+        ref.current.textContent = Math.floor(latest) + suffix;
+      }
+    });
+
+    return () => unsubscribe();
+  }, [springValue, suffix]);
+
+  return <div ref={ref} className="inline-block">0{suffix}</div>;
+}
 
 export default function Services() {
   const handleWhatsAppClick = (serviceName: string) => {
@@ -24,18 +51,26 @@ export default function Services() {
           </p>
 
           {/* Stats Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
-            <div className="text-center">
-              <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">+500</div>
-              <div className="text-neutral-700 font-medium">Clientes satisfechos</div>
-            </div>
-            <div className="text-center">
-              <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">+10</div>
-              <div className="text-neutral-700 font-medium">Años de experiencia</div>
-            </div>
-            <div className="text-center">
-              <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">100%</div>
-              <div className="text-neutral-700 font-medium">Garantía de calidad</div>
+          <div className="bg-primary rounded-3xl p-8 md:p-12 max-w-5xl mx-auto mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">
+                  +<AnimatedCounter value={500} />
+                </div>
+                <div className="text-white font-medium">Clientes satisfechos</div>
+              </div>
+              <div className="text-center">
+                <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">
+                  +<AnimatedCounter value={10} />
+                </div>
+                <div className="text-white font-medium">Años de experiencia</div>
+              </div>
+              <div className="text-center">
+                <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">
+                  <AnimatedCounter value={100} suffix="%" />
+                </div>
+                <div className="text-white font-medium">Garantía de calidad</div>
+              </div>
             </div>
           </div>
         </div>
@@ -56,10 +91,14 @@ export default function Services() {
 
               {/* Subcategories Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {FEATURED_SERVICE.subcategories.map((subcategory) => (
-                  <div
+                {FEATURED_SERVICE.subcategories.map((subcategory, index) => (
+                  <motion.div
                     key={subcategory.id}
                     className="bg-white rounded-2xl p-6 md:p-8 text-neutral-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-neutral-200"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center shadow-lg">
@@ -112,7 +151,7 @@ export default function Services() {
                       </svg>
                       Solicitar Presupuesto
                     </button>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -120,10 +159,14 @@ export default function Services() {
 
           {/* Other Services - Same Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {SERVICES.map((service) => (
-              <div
+            {SERVICES.map((service, index) => (
+              <motion.div
                 key={service.id}
                 className="bg-gradient-to-br from-white to-neutral-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-neutral-100 hover:border-accent/20 group hover:-translate-y-1"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
               >
                 <div className="p-8">
                   {/* Icon and Title */}
@@ -131,7 +174,7 @@ export default function Services() {
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <span className="text-4xl">{service.icon}</span>
                     </div>
-                    <h3 className="font-heading text-2xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                    <h3 className="font-heading text-2xl font-bold text-primary mb-3">
                       {service.title}
                     </h3>
                     <p className="text-neutral-600 leading-relaxed">
@@ -177,7 +220,7 @@ export default function Services() {
                     Solicitar Presupuesto
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
