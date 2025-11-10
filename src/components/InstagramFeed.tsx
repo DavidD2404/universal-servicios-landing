@@ -31,9 +31,9 @@ export default function InstagramFeed() {
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 mb-4">
             <svg
-              className="w-8 h-8 md:w-10 md:h-10 text-primary"
+              className="w-12 h-12 md:w-10 md:h-10 text-primary"
               fill="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"

@@ -51,25 +51,25 @@ export default function Services() {
           </p>
 
           {/* Stats Section */}
-          <div className="bg-primary rounded-3xl p-8 md:p-12 max-w-5xl mx-auto mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-primary rounded-2xl md:rounded-3xl p-6 md:p-12 max-w-5xl mx-auto mb-12 md:mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               <div className="text-center">
-                <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">
+                <div className="font-heading text-4xl md:text-6xl font-extrabold text-accent mb-1 md:mb-2">
                   +<AnimatedCounter value={500} />
                 </div>
-                <div className="text-white font-medium">Clientes satisfechos</div>
+                <div className="text-white text-sm md:text-base font-medium">Clientes satisfechos</div>
               </div>
               <div className="text-center">
-                <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">
+                <div className="font-heading text-4xl md:text-6xl font-extrabold text-accent mb-1 md:mb-2">
                   +<AnimatedCounter value={10} />
                 </div>
-                <div className="text-white font-medium">Años de experiencia</div>
+                <div className="text-white text-sm md:text-base font-medium">Años de experiencia</div>
               </div>
               <div className="text-center">
-                <div className="font-heading text-5xl md:text-6xl font-extrabold text-accent mb-2">
+                <div className="font-heading text-4xl md:text-6xl font-extrabold text-accent mb-1 md:mb-2">
                   <AnimatedCounter value={100} suffix="%" />
                 </div>
-                <div className="text-white font-medium">Garantía de calidad</div>
+                <div className="text-white text-sm md:text-base font-medium">Garantía de calidad</div>
               </div>
             </div>
           </div>

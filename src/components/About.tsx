@@ -13,10 +13,10 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-neutral-50 p-6 rounded-xl">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-neutral-50 p-8 rounded-xl text-center md:text-left">
+              <div className="w-16 h-16 md:w-14 md:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <svg
-                  className="w-6 h-6 text-secondary"
+                  className="w-8 h-8 md:w-7 md:h-7 text-secondary"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -35,10 +35,10 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-neutral-50 p-6 rounded-xl">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-neutral-50 p-8 rounded-xl text-center md:text-left">
+              <div className="w-16 h-16 md:w-14 md:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <svg
-                  className="w-6 h-6 text-secondary"
+                  className="w-8 h-8 md:w-7 md:h-7 text-secondary"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -57,10 +57,10 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-neutral-50 p-6 rounded-xl">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-neutral-50 p-8 rounded-xl text-center md:text-left">
+              <div className="w-16 h-16 md:w-14 md:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <svg
-                  className="w-6 h-6 text-secondary"
+                  className="w-8 h-8 md:w-7 md:h-7 text-secondary"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -79,10 +79,10 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-neutral-50 p-6 rounded-xl">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-neutral-50 p-8 rounded-xl text-center md:text-left">
+              <div className="w-16 h-16 md:w-14 md:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <svg
-                  className="w-6 h-6 text-secondary"
+                  className="w-8 h-8 md:w-7 md:h-7 text-secondary"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"

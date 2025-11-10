@@ -280,65 +280,66 @@ export default function ServiceBanners() {
           </div>
 
           {/* Mobile */}
-          <div className="md:hidden relative bg-[#1e3a5f] overflow-hidden min-h-[550px]">
+          <div className="md:hidden relative bg-[#1e3a5f] overflow-hidden">
             {/* Background image with overlay */}
             <div className="absolute inset-0">
               <Image
                 src="/images/gallery/trabajo-1.jpg"
                 alt="Estructuras"
                 fill
-                className="object-cover opacity-25"
+                className="object-cover opacity-20"
                 quality={75}
                 sizes="100vw"
               />
             </div>
 
             {/* Content */}
-            <div className="relative z-10 p-6 py-10 text-white">
-              <div className="mb-6">
-                <span className="block font-heading font-extrabold text-2xl">UNIVERSAL</span>
-                <span className="block font-heading font-medium text-yellow-400 text-lg">SERVICIOS</span>
-              </div>
-              <h2 className="font-heading text-4xl font-bold mb-4 leading-tight">
-                EXPERTOS EN<br />SEGURIDAD,<br />DE PUNTA A PUNTA
-              </h2>
-              <p className="text-lg mb-6">
-                Instalación Profesional con Materiales Certificados
-              </p>
+            <div className="relative z-10 p-6 pt-10 pb-12 text-white h-full flex flex-col justify-between" style={{ minHeight: '550px' }}>
+              <div>
+                <div className="mb-6">
+                  <span className="block font-heading font-extrabold text-2xl">UNIVERSAL</span>
+                  <span className="block font-heading font-medium text-yellow-400 text-lg">SERVICIOS</span>
+                </div>
+                <h2 className="font-heading text-4xl font-bold mb-4 leading-tight">
+                  EXPERTOS EN<br />SEGURIDAD,<br />DE PUNTA A PUNTA
+                </h2>
+                <p className="text-base mb-6">
+                  Instalación Profesional con Materiales Certificados
+                </p>
 
-              {/* Features */}
-              <div className="mb-6 space-y-3">
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-                  <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
+                {/* Features */}
+                <div className="mb-6 space-y-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium">Instalación en todo CABA</span>
                   </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase">INSTALACIÓN EN</div>
-                    <div className="text-sm font-bold text-yellow-400">TODO CABA</div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium">Red multifilamento hasta 300kg</span>
                   </div>
-                </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-                  <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                    </svg>
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium">Materiales certificados</span>
                   </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase">RED MULTIFILAMENTO</div>
-                    <div className="text-sm font-bold text-yellow-400">HASTA 300KG</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-                  <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase">*GARANTÍA</div>
-                    <div className="text-sm font-bold text-yellow-400">DE CALIDAD</div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium">Garantía de calidad</span>
                   </div>
                 </div>
               </div>
