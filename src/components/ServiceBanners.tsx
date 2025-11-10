@@ -122,7 +122,7 @@ export default function ServiceBanners() {
           </div>
 
           {/* Mobile */}
-          <div className="md:hidden relative bg-[#0A2647] overflow-hidden min-h-[550px]">
+          <div className="md:hidden relative bg-[#0A2647] overflow-hidden">
             {/* Background image with overlay */}
             <div className="absolute inset-0">
               <Image
@@ -138,7 +138,7 @@ export default function ServiceBanners() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 p-6 py-10 pb-12 text-white">
+            <div className="relative z-10 p-6 py-10 pb-12 text-white min-h-[580px] flex flex-col">
               <div className="mb-6">
                 <span className="block font-heading font-extrabold text-2xl">UNIVERSAL</span>
                 <span className="block font-heading font-medium text-yellow-400 text-lg">SERVICIOS</span>
@@ -151,7 +151,7 @@ export default function ServiceBanners() {
               </p>
 
               {/* Features con iconos mobile */}
-              <div className="mb-6 space-y-2">
+              <div className="mb-8 space-y-2 flex-grow">
                 <div className="flex items-center gap-3">
                   <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,21 +299,20 @@ export default function ServiceBanners() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 p-6 pt-10 pb-12 text-white h-full flex flex-col justify-between" style={{ minHeight: '550px' }}>
-              <div>
-                <div className="mb-6">
-                  <span className="block font-heading font-extrabold text-2xl">UNIVERSAL</span>
-                  <span className="block font-heading font-medium text-yellow-400 text-lg">SERVICIOS</span>
-                </div>
-                <h2 className="font-heading text-4xl font-bold mb-4 leading-tight">
-                  EXPERTOS EN<br />SEGURIDAD,<br />DE PUNTA A PUNTA
-                </h2>
-                <p className="text-base mb-6">
-                  Instalación Profesional con Materiales Certificados
-                </p>
+            <div className="relative z-10 p-6 py-10 pb-12 text-white min-h-[580px] flex flex-col">
+              <div className="mb-6">
+                <span className="block font-heading font-extrabold text-2xl">UNIVERSAL</span>
+                <span className="block font-heading font-medium text-yellow-400 text-lg">SERVICIOS</span>
+              </div>
+              <h2 className="font-heading text-4xl font-bold mb-4 leading-tight">
+                EXPERTOS EN<br />SEGURIDAD,<br />DE PUNTA A PUNTA
+              </h2>
+              <p className="text-base mb-6">
+                Instalación Profesional con Materiales Certificados
+              </p>
 
-                {/* Features */}
-                <div className="mb-6 space-y-2">
+              {/* Features */}
+              <div className="mb-8 space-y-2 flex-grow">
                   <div className="flex items-center gap-3">
                     <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
@@ -347,7 +346,6 @@ export default function ServiceBanners() {
                     <span className="text-sm font-medium">Garantía de calidad</span>
                   </div>
                 </div>
-              </div>
 
               <button
                 onClick={() => handleWhatsApp('Estructuras de Acero')}
@@ -458,7 +456,7 @@ export default function ServiceBanners() {
           </div>
 
           {/* Mobile */}
-          <div className="md:hidden relative bg-[#0A2647] overflow-hidden min-h-[550px]">
+          <div className="md:hidden relative bg-[#0A2647] overflow-hidden">
             {/* Background image with overlay */}
             <div className="absolute inset-0">
               <Image
@@ -473,7 +471,7 @@ export default function ServiceBanners() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 p-6 py-10 pb-12 text-white">
+            <div className="relative z-10 p-6 py-10 pb-12 text-white min-h-[580px] flex flex-col">
               <div className="mb-6">
                 <span className="block font-heading font-extrabold text-2xl">UNIVERSAL</span>
                 <span className="block font-heading font-medium text-yellow-400 text-lg">SERVICIOS</span>
@@ -486,7 +484,7 @@ export default function ServiceBanners() {
               </p>
 
               {/* Features con iconos mobile */}
-              <div className="mb-6 space-y-2">
+              <div className="mb-8 space-y-2 flex-grow">
                 <div className="flex items-center gap-3">
                   <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg className="w-3 h-3 text-primary" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
