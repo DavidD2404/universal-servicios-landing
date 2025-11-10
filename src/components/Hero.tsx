@@ -20,7 +20,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-lg md:text-xl text-neutral-100 mb-8 max-w-2xl mx-auto">
-            Especialistas en redes de seguridad, estructuras de aluminio y acero, 
+            Especialistas en redes de seguridad, estructuras de acero
             e instalación de aires acondicionados en Buenos Aires.
           </p>
 
