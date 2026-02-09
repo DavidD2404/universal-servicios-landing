@@ -1,36 +1,53 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { CONTACT_INFO } from '@/utils/constants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-dark text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mb-8">
+    <footer className="relative bg-gradient-to-br from-primary via-[#0A2647] to-primary-dark text-white py-14 md:py-16 lg:py-20 overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+
+      {/* Wave decoration */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 lg:gap-16 mb-10 md:mb-12">
           {/* Company Info */}
-          <div className="text-center md:text-left">
-            <div className="flex flex-col leading-none mb-4 items-center md:items-start">
-              <span className="font-heading font-extrabold text-white text-2xl md:text-xl tracking-tight">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center md:text-left"
+          >
+            <div className="flex flex-col leading-none mb-6 items-center md:items-start">
+              <span className="font-heading font-extrabold text-white text-2xl md:text-3xl tracking-tight">
                 UNIVERSAL
               </span>
-              <span className="font-heading font-medium text-secondary text-base md:text-base tracking-widest">
+              <span className="font-heading font-medium text-accent text-base md:text-lg tracking-widest">
                 SERVICIOS
               </span>
             </div>
-            <p className="text-neutral-300 mb-6 text-base">
+            <p className="text-white/80 mb-8 text-base md:text-lg leading-relaxed">
               Protegiendo lo que más te importa desde hace más de 7 años.
             </p>
+
             {/* Redes Sociales */}
             <div className="flex gap-4 justify-center md:justify-start">
               <a
                 href="https://www.instagram.com/redprouniversal/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors group"
+                className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 group hover:scale-110 border border-white/10"
                 aria-label="Síguenos en Instagram"
               >
                 <svg
-                  className="w-6 h-6 text-white group-hover:text-secondary transition-colors"
+                  className="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-accent transition-colors"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -42,11 +59,11 @@ export default function Footer() {
                 href={`https://wa.me/${CONTACT_INFO.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors group"
+                className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 group hover:scale-110 border border-white/10"
                 aria-label="Contáctanos por WhatsApp"
               >
                 <svg
-                  className="w-6 h-6 text-white group-hover:text-secondary transition-colors"
+                  className="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-accent transition-colors"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -55,72 +72,111 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div className="text-center md:text-left">
-            <h3 className="font-heading font-bold text-xl mb-4">Contacto</h3>
-            <ul className="space-y-3 text-neutral-300">
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <svg
-                  className="w-5 h-5 text-secondary flex-shrink-0"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span className="text-base">{CONTACT_INFO.phone}</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-center md:text-left"
+          >
+            <h3 className="font-heading font-bold text-xl md:text-2xl mb-6 text-accent">Contacto</h3>
+            <ul className="space-y-4 text-white/80">
+              <li className="flex items-center gap-3 justify-center md:justify-start group hover:text-white transition-colors">
+                <div className="w-10 h-10 bg-secondary/20 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:bg-secondary/30 transition-all">
+                  <svg
+                    className="w-5 h-5 text-secondary flex-shrink-0"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <span className="text-base md:text-lg font-medium">{CONTACT_INFO.phone}</span>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <svg
-                  className="w-5 h-5 text-secondary flex-shrink-0"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span className="text-base break-words">{CONTACT_INFO.email}</span>
+              <li className="flex items-center gap-3 justify-center md:justify-start group hover:text-white transition-colors">
+                <div className="w-10 h-10 bg-secondary/20 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:bg-secondary/30 transition-all flex-shrink-0">
+                  <svg
+                    className="w-5 h-5 text-secondary flex-shrink-0"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <span className="text-base md:text-lg break-words font-medium">{CONTACT_INFO.email}</span>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <svg
-                  className="w-5 h-5 text-secondary flex-shrink-0"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span className="text-base">{CONTACT_INFO.location}</span>
+              <li className="flex items-center gap-3 justify-center md:justify-start group hover:text-white transition-colors">
+                <div className="w-10 h-10 bg-secondary/20 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:bg-secondary/30 transition-all flex-shrink-0">
+                  <svg
+                    className="w-5 h-5 text-secondary flex-shrink-0"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <span className="text-base md:text-lg font-medium">{CONTACT_INFO.location}</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div className="text-center md:text-left">
-            <h3 className="font-heading font-bold text-xl mb-4">Servicios</h3>
-            <ul className="space-y-2 text-neutral-300 text-base">
-              <li>Redes de Seguridad</li>
-              <li>Estructuras de Acero</li>
-              <li>Aires Acondicionados</li>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-center md:text-left"
+          >
+            <h3 className="font-heading font-bold text-xl md:text-2xl mb-6 text-accent">Servicios</h3>
+            <ul className="space-y-3 text-white/80 text-base md:text-lg">
+              <li className="flex items-center gap-2 justify-center md:justify-start hover:text-white transition-colors group">
+                <div className="w-1.5 h-1.5 bg-secondary rounded-full group-hover:scale-150 transition-transform" />
+                <span className="font-medium">Redes de Seguridad</span>
+              </li>
+              <li className="flex items-center gap-2 justify-center md:justify-start hover:text-white transition-colors group">
+                <div className="w-1.5 h-1.5 bg-secondary rounded-full group-hover:scale-150 transition-transform" />
+                <span className="font-medium">Estructuras de Acero</span>
+              </li>
+              <li className="flex items-center gap-2 justify-center md:justify-start hover:text-white transition-colors group">
+                <div className="w-1.5 h-1.5 bg-secondary rounded-full group-hover:scale-150 transition-transform" />
+                <span className="font-medium">Aires Acondicionados</span>
+              </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="border-t border-neutral-700 pt-8 text-center text-neutral-400">
-          <p>© {currentYear} Universal Servicios. Todos los derechos reservados.</p>
-        </div>
+        {/* Bottom Section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="relative"
+        >
+          <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8" />
+          <div className="text-center">
+            <p className="text-white/60 text-sm md:text-base">
+              © {currentYear} Universal Servicios. Todos los derechos reservados.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );
