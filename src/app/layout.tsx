@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import LoadingProvider from "@/components/LoadingProvider";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -14,9 +15,32 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.universalservicios.com.ar'),
   title: "Universal Servicios",
   description: "Especialistas en instalación de redes de seguridad, estructuras de aluminio y acero, e instalación de aires acondicionados en Buenos Aires, Argentina.",
   keywords: "redes de seguridad, estructuras aluminio, estructuras acero, aires acondicionados, Buenos Aires, instalación",
+  openGraph: {
+    type: 'website',
+    locale: 'es_AR',
+    url: 'https://www.universalservicios.com.ar',
+    siteName: 'Universal Servicios',
+    title: 'Universal Servicios - Redes de Seguridad y Aires Acondicionados',
+    description: 'Especialistas en instalación de redes de seguridad, estructuras de aluminio y acero, e instalación de aires acondicionados en Buenos Aires, Argentina.',
+    images: [
+      {
+        url: '/images/gallery/trabajo-2.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Universal Servicios - Redes de Seguridad',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Universal Servicios - Redes de Seguridad y Aires Acondicionados',
+    description: 'Especialistas en instalación de redes de seguridad, estructuras de aluminio y acero, e instalación de aires acondicionados en Buenos Aires.',
+    images: ['/images/gallery/trabajo-2.jpg'],
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -35,7 +59,9 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
-        {children}
+        <LoadingProvider>
+          {children}
+        </LoadingProvider>
       </body>
     </html>
   );

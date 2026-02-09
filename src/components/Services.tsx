@@ -47,7 +47,7 @@ export default function Services() {
             Nuestros Servicios
           </h2>
           <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed mb-12">
-            Soluciones profesionales de seguridad y climatización con más de 10 años de experiencia
+            Soluciones profesionales de seguridad y climatización con más de 7 años de experiencia
           </p>
 
           {/* Stats Section */}
@@ -61,7 +61,7 @@ export default function Services() {
               </div>
               <div className="text-center">
                 <div className="font-heading text-4xl md:text-6xl font-extrabold text-accent mb-1 md:mb-2">
-                  +<AnimatedCounter value={10} />
+                  +<AnimatedCounter value={7} />
                 </div>
                 <div className="text-white text-sm md:text-base font-medium">Años de experiencia</div>
               </div>
@@ -139,7 +139,7 @@ export default function Services() {
                     {/* CTA Button */}
                     <button
                       onClick={() => handleWhatsAppClick(`${FEATURED_SERVICE.title} - ${subcategory.title}`)}
-                      className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                      className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg touch-manipulation"
                     >
                       <svg
                         className="w-5 h-5"
@@ -207,7 +207,7 @@ export default function Services() {
                   {/* CTA Button */}
                   <button
                     onClick={() => handleWhatsAppClick(service.title)}
-                    className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                    className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg touch-manipulation"
                   >
                     <svg
                       className="w-5 h-5"

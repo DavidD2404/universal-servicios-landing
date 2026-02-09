@@ -14,9 +14,9 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="bg-neutral-50 p-8 rounded-xl text-center md:text-left">
-              <div className="w-16 h-16 md:w-14 md:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <svg
-                  className="w-8 h-8 md:w-7 md:h-7 text-secondary"
+                  className="w-7 h-7 md:w-8 md:h-8 text-secondary"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -36,9 +36,9 @@ export default function About() {
             </div>
 
             <div className="bg-neutral-50 p-8 rounded-xl text-center md:text-left">
-              <div className="w-16 h-16 md:w-14 md:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <svg
-                  className="w-8 h-8 md:w-7 md:h-7 text-secondary"
+                  className="w-7 h-7 md:w-8 md:h-8 text-secondary"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -58,9 +58,9 @@ export default function About() {
             </div>
 
             <div className="bg-neutral-50 p-8 rounded-xl text-center md:text-left">
-              <div className="w-16 h-16 md:w-14 md:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <svg
-                  className="w-8 h-8 md:w-7 md:h-7 text-secondary"
+                  className="w-7 h-7 md:w-8 md:h-8 text-secondary"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -80,9 +80,9 @@ export default function About() {
             </div>
 
             <div className="bg-neutral-50 p-8 rounded-xl text-center md:text-left">
-              <div className="w-16 h-16 md:w-14 md:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <svg
-                  className="w-8 h-8 md:w-7 md:h-7 text-secondary"
+                  className="w-7 h-7 md:w-8 md:h-8 text-secondary"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -106,11 +106,11 @@ export default function About() {
             <h3 className="font-heading text-2xl font-bold mb-4 text-center">
               Nuestra Misión
             </h3>
-            <p className="text-lg text-center leading-relaxed">
-              En <span className="font-bold">Universal Servicios</span>, nos especializamos en brindar 
-              tranquilidad y bienestar a nuestros clientes a través de soluciones de seguridad de alta 
-              calidad. Nuestro compromiso es proteger lo que más te importa: tu familia, mascotas y 
-              espacios, ofreciendo instalaciones profesionales respaldadas por años de experiencia 
+            <p className="text-lg text-left md:text-center leading-relaxed">
+              En <span className="font-bold">Universal Servicios</span>, nos especializamos en brindar
+              tranquilidad y bienestar a nuestros clientes a través de soluciones de seguridad de alta
+              calidad. Nuestro compromiso es proteger lo que más te importa: tu familia, mascotas y
+              espacios, ofreciendo instalaciones profesionales respaldadas por años de experiencia
               en Buenos Aires.
             </p>
           </div>

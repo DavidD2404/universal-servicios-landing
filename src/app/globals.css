@@ -6,14 +6,27 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply text-neutral-900;
+    /* Prevenir scroll durante carga */
+    overflow-x: hidden;
+  }
+
+  /* Optimización de fuentes */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Optimización de renderizado */
+  .will-change-transform {
+    will-change: transform;
   }
 }

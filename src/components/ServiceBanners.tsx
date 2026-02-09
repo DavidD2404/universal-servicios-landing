@@ -6,13 +6,16 @@ import Image from 'next/image';
 
 export default function ServiceBanners() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % 3);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   const handleWhatsApp = (service: string) => {
     const message = encodeURIComponent(`¡Hola! Me interesa el servicio de ${service}`);
@@ -84,7 +87,7 @@ export default function ServiceBanners() {
 
                     <button
                       onClick={() => handleWhatsApp('Redes de Seguridad')}
-                      className="bg-yellow-400 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-all shadow-xl hover:shadow-2xl"
+                      className="bg-yellow-400 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-all shadow-xl hover:shadow-2xl touch-manipulation"
                     >
                       ¡Presupuesto sin Cargo por WhatsApp!
                     </button>
@@ -188,7 +191,7 @@ export default function ServiceBanners() {
 
               <button
                 onClick={() => handleWhatsApp('Redes de Seguridad')}
-                className="w-full bg-yellow-400 text-primary px-6 py-4 rounded-full font-bold text-base hover:bg-yellow-500 transition-colors shadow-lg"
+                className="w-full bg-yellow-400 text-primary px-6 py-4 rounded-full font-bold text-base hover:bg-yellow-500 transition-colors shadow-lg touch-manipulation"
               >
                 ¡Presupuesto sin Cargo por WhatsApp!
               </button>
@@ -215,7 +218,7 @@ export default function ServiceBanners() {
                   src="/images/gallery/trabajo-1.jpg"
                   alt="Estructuras de acero"
                   fill
-                  className="object-cover opacity-30"
+                  className="object-cover opacity-20"
                   quality={60}
                   sizes="100vw"
                   loading="lazy"
@@ -234,7 +237,7 @@ export default function ServiceBanners() {
                     </p>
                     <button
                       onClick={() => handleWhatsApp('Estructuras de Acero')}
-                      className="bg-yellow-400 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-all shadow-xl"
+                      className="bg-yellow-400 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-all shadow-xl touch-manipulation"
                     >
                       CONSULTAR COBERTURA
                     </button>
@@ -252,7 +255,7 @@ export default function ServiceBanners() {
                       </div>
                       <div className="text-white">
                         <div className="font-bold text-sm uppercase">INSTALACIÓN EN</div>
-                        <div className="font-bold text-base text-yellow-400">TODO CABA</div>
+                        <div className="font-bold text-base text-yellow-400">TODO CABA Y BS AS</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl">
@@ -263,7 +266,7 @@ export default function ServiceBanners() {
                       </div>
                       <div className="text-white">
                         <div className="font-bold text-sm uppercase">RED MULTIFILAMENTO</div>
-                        <div className="font-bold text-base text-yellow-400">HASTA 300KG</div>
+                        <div className="font-bold text-sm uppercase">RED MONOFILAMENTO</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl">
@@ -291,7 +294,7 @@ export default function ServiceBanners() {
                 src="/images/gallery/trabajo-1.jpg"
                 alt="Estructuras"
                 fill
-                className="object-cover opacity-20"
+                className="object-cover opacity-15"
                 quality={60}
                 sizes="100vw"
                 loading="lazy"
@@ -319,7 +322,7 @@ export default function ServiceBanners() {
                         <path d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-sm font-medium">Instalación en todo CABA</span>
+                    <span className="text-sm font-medium">Instalación en CABA y Buenos Aires</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
@@ -327,7 +330,7 @@ export default function ServiceBanners() {
                         <path d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-sm font-medium">Red multifilamento hasta 300kg</span>
+                    <span className="text-sm font-medium">Red multifilamento y monofilamento</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
@@ -349,7 +352,7 @@ export default function ServiceBanners() {
 
               <button
                 onClick={() => handleWhatsApp('Estructuras de Acero')}
-                className="w-full bg-yellow-400 text-primary px-6 py-4 rounded-full font-bold text-base hover:bg-yellow-500 transition-colors shadow-lg"
+                className="w-full bg-yellow-400 text-primary px-6 py-4 rounded-full font-bold text-base hover:bg-yellow-500 transition-colors shadow-lg touch-manipulation"
               >
                 CONSULTAR COBERTURA
               </button>
@@ -404,7 +407,7 @@ export default function ServiceBanners() {
                       CLIMA PERFECTO<br />TODO EL AÑO
                     </h2>
                     <p className="text-xl mb-8 text-blue-300">
-                      Instalación, mantenimiento y reparación profesional
+                      Instalación profesional y mantenimiento preventivo de Aires acondicionados
                     </p>
 
                     {/* Features con iconos */}
@@ -423,7 +426,7 @@ export default function ServiceBanners() {
                             <path d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span className="text-lg font-medium">Equipos de primeras marcas</span>
+                        <span className="text-lg font-medium">Equipamiento profesional</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
@@ -445,7 +448,7 @@ export default function ServiceBanners() {
 
                     <button
                       onClick={() => handleWhatsApp('Aires Acondicionados')}
-                      className="bg-yellow-400 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-all shadow-xl hover:shadow-2xl"
+                      className="bg-yellow-400 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-all shadow-xl hover:shadow-2xl touch-manipulation"
                     >
                       ¡Solicitar Técnico Ahora!
                     </button>
@@ -480,7 +483,7 @@ export default function ServiceBanners() {
                 CLIMA PERFECTO<br />TODO EL AÑO
               </h2>
               <p className="text-base mb-6 text-blue-300">
-                Instalación, mantenimiento y reparación profesional
+                Instalación profesional y mantenimiento preventivo de Aires acondicionados
               </p>
 
               {/* Features con iconos mobile */}
@@ -499,7 +502,7 @@ export default function ServiceBanners() {
                       <path d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-sm font-medium">Equipos de primeras marcas</span>
+                  <span className="text-sm font-medium">Equipamiento profesional</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
@@ -521,7 +524,7 @@ export default function ServiceBanners() {
 
               <button
                 onClick={() => handleWhatsApp('Aires Acondicionados')}
-                className="w-full bg-yellow-400 text-primary px-6 py-4 rounded-full font-bold text-base hover:bg-yellow-500 transition-colors shadow-lg"
+                className="w-full bg-yellow-400 text-primary px-6 py-4 rounded-full font-bold text-base hover:bg-yellow-500 transition-colors shadow-lg touch-manipulation"
               >
                 ¡Solicitar Técnico Ahora!
               </button>
@@ -529,17 +532,38 @@ export default function ServiceBanners() {
           </div>
         </div>
 
-        {/* Navigation Dots */}
-        <div className="flex justify-center gap-3 mt-6 pb-4">
-          {[0, 1, 2].map((index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`h-3 rounded-full transition-all ${
-                currentSlide === index ? 'w-10 bg-yellow-400' : 'w-3 bg-neutral-400'
-              }`}
-            />
-          ))}
+        {/* Navigation Dots y Control de Pausa */}
+        <div className="flex justify-center items-center gap-4 mt-6 pb-4">
+          {/* Dots */}
+          <div className="flex gap-3">
+            {[0, 1, 2].map((index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-4 md:h-3 rounded-full transition-all touch-manipulation ${
+                  currentSlide === index ? 'w-10 bg-yellow-400' : 'w-4 md:w-3 bg-neutral-400'
+                }`}
+                aria-label={`Ir a slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Botón Play/Pause */}
+          <button
+            onClick={() => setIsPaused(!isPaused)}
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300 transition-colors touch-manipulation"
+            aria-label={isPaused ? 'Reanudar carrusel' : 'Pausar carrusel'}
+          >
+            {isPaused ? (
+              <svg className="w-4 h-4 text-neutral-700" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            ) : (
+              <svg className="w-4 h-4 text-neutral-700" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
     </section>

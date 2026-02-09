@@ -3,7 +3,7 @@ import { ContactInfo, Service } from '@/types';
 export const CONTACT_INFO: ContactInfo = {
   phone: '+54 9 11 2659-8074',
   whatsappNumber: '5491126598074',
-  email: 'contacto@universalservicios.com.ar',
+  email: 'redprouniversal@gmail.com',
   location: 'Buenos Aires, Argentina',
 };
 
@@ -14,7 +14,7 @@ export const WHATSAPP_MESSAGE = encodeURIComponent(
 export const FEATURED_SERVICE = {
   id: 'redes-seguridad',
   title: 'Redes de Seguridad',
-  subtitle: 'Nuestro servicio principal con más de 10 años de experiencia',
+  subtitle: 'Nuestro servicio principal con más de 7 años de experiencia',
   description: 'Protección profesional adaptada a tus necesidades',
   icon: '🛡️',
   subcategories: [

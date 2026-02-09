@@ -18,7 +18,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-neutral-300 mb-6 text-base">
-              Protegiendo lo que más te importa desde hace más de 10 años.
+              Protegiendo lo que más te importa desde hace más de 7 años.
             </p>
             {/* Redes Sociales */}
             <div className="flex gap-4 justify-center md:justify-start">
@@ -87,7 +87,7 @@ export default function Footer() {
                 >
                   <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="text-base break-all">{CONTACT_INFO.email}</span>
+                <span className="text-base break-words">{CONTACT_INFO.email}</span>
               </li>
               <li className="flex items-center gap-3 justify-center md:justify-start">
                 <svg
