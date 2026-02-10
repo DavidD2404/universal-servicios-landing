@@ -73,7 +73,6 @@ export default function InstagramFeed() {
   useEffect(() => {
     if (selectedPost !== null) {
       document.body.style.overflow = "hidden";
-      // Auto-focus close button when modal opens
       setTimeout(() => closeButtonRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = "";
@@ -83,7 +82,6 @@ export default function InstagramFeed() {
     };
   }, [selectedPost]);
 
-  // Focus trap implementation
   useEffect(() => {
     if (selectedPost === null || !modalRef.current) return;
 
@@ -100,13 +98,11 @@ export default function InstagramFeed() {
       const lastElement = focusableElements[focusableElements.length - 1];
 
       if (e.shiftKey) {
-        // Shift + Tab
         if (document.activeElement === firstElement) {
           lastElement.focus();
           e.preventDefault();
         }
       } else {
-        // Tab
         if (document.activeElement === lastElement) {
           firstElement.focus();
           e.preventDefault();

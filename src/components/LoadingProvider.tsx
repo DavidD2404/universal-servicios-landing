@@ -1,14 +1,7 @@
 "use client";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "./Loading";
-interface LoadingContextType {
-  isLoading: boolean;
-  setIsLoading: (loading: boolean) => void;
-}
-const LoadingContext = createContext<LoadingContextType>({
-  isLoading: true,
-  setIsLoading: () => {},
-});
+
 export default function LoadingProvider({
   children,
 }: {
@@ -42,7 +35,7 @@ export default function LoadingProvider({
     };
   }, []);
   return (
-    <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
+    <>
       {isLoading && <Loading />}
       <div
         className={`transition-opacity duration-500 ${
@@ -51,6 +44,6 @@ export default function LoadingProvider({
       >
         {children}
       </div>
-    </LoadingContext.Provider>
+    </>
   );
 }
