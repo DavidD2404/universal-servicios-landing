@@ -11,7 +11,7 @@ export default function ServiceBanners() {
     if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % 3);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [isPaused]);
 

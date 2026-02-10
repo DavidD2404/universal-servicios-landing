@@ -224,7 +224,7 @@ export default function InstagramFeed() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="aspect-[9/16] md:aspect-[4/5] bg-neutral-200 animate-pulse rounded-2xl"
+                className="w-full h-[500px] md:aspect-square bg-neutral-200 animate-pulse rounded-2xl"
               />
             ))}
           </div>
@@ -266,18 +266,21 @@ export default function InstagramFeed() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => setSelectedPost(index)}
-                  className="group relative aspect-[9/16] md:aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-pointer border border-neutral-200 hover:border-primary/20"
+                  className="group relative w-full max-h-[500px] md:aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-pointer border border-neutral-200 hover:border-primary/20"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 opacity-0 group-hover:from-primary/5 group-hover:to-secondary/5 group-hover:opacity-100 transition-all duration-500" />
 
-                  <Image
-                    src={imageUrl}
-                    alt={post.caption?.slice(0, 100) || "Instagram post"}
-                    fill
-                    loading="lazy"
-                    className="object-contain transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
+                  <div className="relative w-full h-full md:absolute md:inset-0">
+                    <Image
+                      src={imageUrl}
+                      alt={post.caption?.slice(0, 100) || "Instagram post"}
+                      width={600}
+                      height={600}
+                      loading="lazy"
+                      className="w-full h-auto max-h-[500px] md:w-full md:h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
 
                   {post.mediaType === "VIDEO" && (
                     <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm rounded-full p-2.5 shadow-lg">

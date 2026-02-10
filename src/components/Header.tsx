@@ -5,7 +5,6 @@ import { CONTACT_INFO, WHATSAPP_MESSAGE } from "@/utils/constants";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isWhatsAppClicked, setIsWhatsAppClicked] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -24,9 +23,6 @@ export default function Header() {
     };
   }, [isMenuOpen]);
   const handleWhatsAppClick = () => {
-    setIsWhatsAppClicked(true);
-    setTimeout(() => setIsWhatsAppClicked(false), 300);
-
     const url = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${WHATSAPP_MESSAGE}`;
     window.open(url, "_blank");
   };
@@ -34,6 +30,7 @@ export default function Header() {
     const element = document.getElementById(sectionId);
     if (element) {
       setIsMenuOpen(false);
+      (document.activeElement as HTMLElement)?.blur();
       setTimeout(() => {
         const headerHeight = 80;
         const elementPosition =
@@ -111,7 +108,7 @@ export default function Header() {
           </motion.div>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 relative z-[60]"
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
