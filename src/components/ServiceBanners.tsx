@@ -6,6 +6,7 @@ import Image from "next/image";
 export default function ServiceBanners() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
@@ -13,6 +14,26 @@ export default function ServiceBanners() {
     }, 5000);
     return () => clearInterval(interval);
   }, [isPaused]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setCurrentSlide((prev) => (prev - 1 + 3) % 3);
+      } else if (e.key === "ArrowRight") {
+        setCurrentSlide((prev) => (prev + 1) % 3);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const goToPrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + 3) % 3);
+  };
+
+  const goToNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % 3);
+  };
   const handleWhatsApp = (service: string) => {
     const message = encodeURIComponent(
       `¡Hola! Me interesa el servicio de ${service}`,
@@ -33,7 +54,7 @@ export default function ServiceBanners() {
   return (
     <section className="w-full bg-neutral-50 pt-20">
       <div className="relative w-full overflow-hidden">
-        <div className="h-[560px] md:h-[680px] lg:h-[600px]" />
+        <div className="h-[500px] sm:h-[560px] md:h-[680px] lg:h-[600px]" />
         <AnimatePresence mode="wait">
           {currentSlide === 0 && (
             <motion.div
@@ -46,7 +67,7 @@ export default function ServiceBanners() {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
               onDragEnd={handleDragEnd}
-              className="lg:cursor-grab lg:active:cursor-grabbing absolute top-0 left-0 right-0 h-[560px] md:h-[680px] lg:h-[600px]"
+              className="lg:cursor-grab lg:active:cursor-grabbing absolute top-0 left-0 right-0 h-[500px] sm:h-[560px] md:h-[680px] lg:h-[600px]"
             >
               <div className="hidden lg:block">
                 <div className="relative h-[600px] bg-primary-darker overflow-hidden">
@@ -83,7 +104,6 @@ export default function ServiceBanners() {
                             "Protección para niños y mascotas",
                             "Materiales de alta resistencia",
                             "Soluciones a medida",
-                            "Garantía de calidad",
                           ].map((feature, i) => (
                             <motion.div
                               key={i}
@@ -164,7 +184,7 @@ export default function ServiceBanners() {
                     sizes="100vw"
                   />
                 </div>
-                <div className="relative z-10 p-6 md:p-10 py-10 pb-12 text-white h-[560px] md:h-[680px] flex flex-col justify-between">
+                <div className="relative z-10 p-6 md:p-10 py-10 pb-12 text-white h-[500px] sm:h-[560px] md:h-[680px] flex flex-col justify-between overflow-hidden">
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -194,7 +214,6 @@ export default function ServiceBanners() {
                       "Protección para niños y mascotas",
                       "Materiales de alta resistencia",
                       "Soluciones a medida",
-                      "Garantía de calidad",
                     ].map((feature, i) => (
                       <motion.div
                         key={i}
@@ -246,7 +265,7 @@ export default function ServiceBanners() {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
               onDragEnd={handleDragEnd}
-              className="lg:cursor-grab lg:active:cursor-grabbing absolute top-0 left-0 right-0 h-[560px] md:h-[680px] lg:h-[600px]"
+              className="lg:cursor-grab lg:active:cursor-grabbing absolute top-0 left-0 right-0 h-[500px] sm:h-[560px] md:h-[680px] lg:h-[600px]"
             >
               <div className="hidden lg:block">
                 <div className="relative h-[600px] bg-primary-slate overflow-hidden">
@@ -362,7 +381,7 @@ export default function ServiceBanners() {
                     loading="lazy"
                   />
                 </div>
-                <div className="relative z-10 p-6 md:p-10 py-10 pb-12 text-white h-[560px] md:h-[680px] flex flex-col justify-between">
+                <div className="relative z-10 p-6 md:p-10 py-10 pb-12 text-white h-[500px] sm:h-[560px] md:h-[680px] flex flex-col justify-between overflow-hidden">
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -393,7 +412,6 @@ export default function ServiceBanners() {
                       "Instalación en CABA y Buenos Aires",
                       "Red multifilamento y monofilamento",
                       "Materiales certificados",
-                      "Garantía de calidad",
                     ].map((feature, i) => (
                       <motion.div
                         key={i}
@@ -426,7 +444,7 @@ export default function ServiceBanners() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.9 }}
                     onClick={() => handleWhatsApp("Estructuras de Acero")}
-                    className="w-full bg-accent text-primary px-6 py-4 rounded-full font-bold text-base md:text-lg hover:bg-accent-dark transition-colors shadow-lg touch-manipulation focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                    className="w-full bg-accent text-primary px-6 py-4 rounded-full font-bold text-base md:text-lg hover:bg-accent-dark transition-colors shadow-lg touch-manipulation focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 max-[375px]:hidden"
                   >
                     ¡Consultar Cobertura Ahora!
                   </motion.button>
@@ -445,7 +463,7 @@ export default function ServiceBanners() {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
               onDragEnd={handleDragEnd}
-              className="lg:cursor-grab lg:active:cursor-grabbing absolute top-0 left-0 right-0 h-[560px] md:h-[680px] lg:h-[600px]"
+              className="lg:cursor-grab lg:active:cursor-grabbing absolute top-0 left-0 right-0 h-[500px] sm:h-[560px] md:h-[680px] lg:h-[600px]"
             >
               <div className="hidden lg:block">
                 <div className="relative h-[600px] bg-primary-darker overflow-hidden">
@@ -560,7 +578,7 @@ export default function ServiceBanners() {
                     loading="lazy"
                   />
                 </div>
-                <div className="relative z-10 p-6 md:p-10 py-10 pb-12 text-white h-[560px] md:h-[680px] flex flex-col justify-between">
+                <div className="relative z-10 p-6 md:p-10 py-10 pb-12 text-white h-[500px] sm:h-[560px] md:h-[680px] flex flex-col justify-between overflow-hidden">
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -632,49 +650,82 @@ export default function ServiceBanners() {
             </motion.div>
           )}
         </AnimatePresence>
-        <div className="relative z-10 flex justify-center items-center gap-4 mt-6 pb-4">
+        <div className="relative z-10 flex justify-center items-center gap-3 mt-6 pb-4">
+          <button
+            onClick={goToPrevSlide}
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300 transition-colors touch-manipulation focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            aria-label="Slide anterior"
+          >
+            <svg
+              className="w-5 h-5 text-neutral-700"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
           <div className="flex gap-2">
             {[0, 1, 2].map((index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className="p-2 touch-manipulation rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                 aria-label={`Ir a slide ${index + 1}`}
+                aria-current={currentSlide === index ? "true" : "false"}
               >
                 <div
-                  className={`h-4 md:h-3 rounded-full transition-all ${
+                  className={`h-3 rounded-full transition-all ${
                     currentSlide === index
-                      ? "w-10 bg-accent"
-                      : "w-4 md:w-3 bg-neutral-400"
+                      ? "w-8 bg-accent"
+                      : "w-3 bg-neutral-400"
                   }`}
                 />
               </button>
             ))}
           </div>
           <button
+            onClick={goToNextSlide}
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300 transition-colors touch-manipulation focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            aria-label="Siguiente slide"
+          >
+            <svg
+              className="w-5 h-5 text-neutral-700"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <button
             onClick={() => setIsPaused(!isPaused)}
-            className="p-2 touch-manipulation rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300 transition-colors touch-manipulation focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
             aria-label={isPaused ? "Reanudar carrusel" : "Pausar carrusel"}
           >
-            <div className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300 transition-colors">
-              {isPaused ? (
-                <svg
-                  className="w-4 h-4 text-neutral-700"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              ) : (
-                <svg
-                  className="w-4 h-4 text-neutral-700"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                </svg>
-              )}
-            </div>
+            {isPaused ? (
+              <svg
+                className="w-4 h-4 text-neutral-700"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            ) : (
+              <svg
+                className="w-4 h-4 text-neutral-700"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
