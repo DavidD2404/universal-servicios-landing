@@ -37,8 +37,21 @@ export default function Header() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Cerrar el menú mobile primero
       setIsMenuOpen(false);
+
+      // Esperar a que el menú se cierre y el body restaure el overflow
+      // La animación del menú es de 300ms, así que esperamos 350ms
+      setTimeout(() => {
+        const headerHeight = 80; // Altura aproximada del header
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 350);
     }
   };
 
@@ -56,8 +69,10 @@ export default function Header() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex flex-col items-center leading-none cursor-pointer"
+            className="flex flex-col items-center leading-none cursor-pointer rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <span className="font-heading font-extrabold text-primary text-xl md:text-2xl tracking-tight">
               UNIVERSAL
@@ -75,21 +90,21 @@ export default function Header() {
           >
             <button
               onClick={() => scrollToSection('servicios')}
-              className="text-neutral-700 hover:text-primary transition-all duration-300 font-medium relative group"
+              className="text-neutral-700 hover:text-primary transition-all duration-300 font-medium relative group rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Servicios
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
             </button>
             <button
               onClick={() => scrollToSection('nosotros')}
-              className="text-neutral-700 hover:text-primary transition-all duration-300 font-medium relative group"
+              className="text-neutral-700 hover:text-primary transition-all duration-300 font-medium relative group rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Nosotros
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
             </button>
             <button
               onClick={handleWhatsAppClick}
-              className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-2.5 rounded-xl transition-all duration-300 font-medium shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2"
+              className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-2.5 rounded-xl transition-all duration-300 font-medium shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
             >
               <svg
                 className="w-5 h-5"
@@ -106,7 +121,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             aria-label="Toggle menu"
           >
             <svg
@@ -142,7 +157,7 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
                 onClick={() => scrollToSection('servicios')}
-                className="block w-full text-left px-4 py-3 text-neutral-700 hover:bg-secondary/10 hover:text-primary rounded-xl transition-all duration-300 font-medium"
+                className="block w-full text-left px-4 py-3 text-neutral-700 hover:bg-secondary/10 hover:text-primary rounded-xl transition-all duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 Servicios
               </motion.button>
@@ -151,7 +166,7 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.15 }}
                 onClick={() => scrollToSection('nosotros')}
-                className="block w-full text-left px-4 py-3 text-neutral-700 hover:bg-secondary/10 hover:text-primary rounded-xl transition-all duration-300 font-medium"
+                className="block w-full text-left px-4 py-3 text-neutral-700 hover:bg-secondary/10 hover:text-primary rounded-xl transition-all duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 Nosotros
               </motion.button>
@@ -160,7 +175,7 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
                 onClick={handleWhatsAppClick}
-                className="block w-full bg-[#25D366] hover:bg-[#20BA5A] text-white px-4 py-3 rounded-xl transition-all duration-300 font-medium shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                className="block w-full bg-[#25D366] hover:bg-[#20BA5A] text-white px-4 py-3 rounded-xl transition-all duration-300 font-medium shadow-md hover:shadow-lg flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
               >
                 <svg
                   className="w-5 h-5"

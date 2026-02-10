@@ -13,6 +13,9 @@ const config: Config = {
           DEFAULT: '#09407D', // Azul oscuro oficial
           light: '#3B82F6',
           dark: '#072D5A',
+          darker: '#0A2647', // Azul oscuro para fondos de banners/carrusel
+          medium: '#0A2F5F', // Azul medio para gradientes
+          slate: '#1e3a5f', // Azul slate para fondos de slide 2
         },
         secondary: {
           DEFAULT: '#28ADE1', // Azul claro oficial

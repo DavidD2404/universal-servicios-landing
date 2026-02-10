@@ -20,29 +20,45 @@ export default function LoadingProvider({ children }: { children: React.ReactNod
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Esperar a que todo el contenido esté listo
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      // Pequeño delay para la transición suave
-      setTimeout(() => setShowContent(true), 100);
-    }, 2000); // 2 segundos mínimo de loading
+    const startTime = Date.now();
+    const minLoadingTime = 300; // Mínimo 300ms para evitar flash, pero sin delay artificial largo
+    let isPageLoaded = false;
 
-    // También escuchar cuando la página esté completamente cargada
-    if (typeof window !== 'undefined') {
-      if (document.readyState === 'complete') {
+    const handleLoadComplete = () => {
+      if (isPageLoaded) return; // Evitar ejecutar múltiples veces
+      isPageLoaded = true;
+
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+
+      // Si cargó muy rápido, esperar solo 300ms para una transición suave
+      // Si tardó más, terminar inmediatamente sin delay adicional
+      setTimeout(() => {
         setIsLoading(false);
         setTimeout(() => setShowContent(true), 100);
-        clearTimeout(timer);
+      }, remainingTime);
+    };
+
+    // Detectar si la página ya está cargada
+    if (typeof window !== 'undefined') {
+      if (document.readyState === 'complete') {
+        handleLoadComplete();
       } else {
-        window.addEventListener('load', () => {
-          setIsLoading(false);
-          setTimeout(() => setShowContent(true), 100);
-          clearTimeout(timer);
-        });
+        window.addEventListener('load', handleLoadComplete);
       }
     }
 
-    return () => clearTimeout(timer);
+    // Timeout de seguridad (máximo 3 segundos)
+    const maxTimer = setTimeout(() => {
+      handleLoadComplete();
+    }, 3000);
+
+    return () => {
+      clearTimeout(maxTimer);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('load', handleLoadComplete);
+      }
+    };
   }, []);
 
   return (

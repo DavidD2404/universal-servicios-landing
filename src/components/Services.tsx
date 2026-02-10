@@ -108,7 +108,7 @@ export default function Services() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative mt-12 md:mt-16"
           >
-            <div className="bg-gradient-to-br from-primary via-[#0A2F5F] to-primary rounded-3xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-16 max-w-6xl mx-auto shadow-2xl border border-white/10 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-primary via-primary-medium to-primary rounded-3xl md:rounded-[2.5rem] p-8 md:p-10 lg:p-16 max-w-6xl mx-auto shadow-2xl border border-white/10 backdrop-blur-sm">
               {/* Decorative accents */}
               <div className="absolute top-6 right-6 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
               <div className="absolute bottom-6 left-6 w-32 h-32 bg-secondary/20 rounded-full blur-2xl" />
@@ -116,7 +116,7 @@ export default function Services() {
               <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                 <div className="text-center group">
                   <div className="inline-flex items-baseline justify-center mb-3">
-                    <span className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold text-accent mr-2 group-hover:scale-110 transition-transform duration-300">
+                    <span className="font-heading text-5xl md:text-6xl lg:text-8xl font-extrabold text-accent mr-2 group-hover:scale-110 transition-transform duration-300">
                       +<AnimatedCounter value={500} />
                     </span>
                   </div>
@@ -125,7 +125,7 @@ export default function Services() {
                 </div>
                 <div className="text-center group">
                   <div className="inline-flex items-baseline justify-center mb-3">
-                    <span className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold text-accent mr-2 group-hover:scale-110 transition-transform duration-300">
+                    <span className="font-heading text-5xl md:text-6xl lg:text-8xl font-extrabold text-accent mr-2 group-hover:scale-110 transition-transform duration-300">
                       +<AnimatedCounter value={7} />
                     </span>
                   </div>
@@ -134,7 +134,7 @@ export default function Services() {
                 </div>
                 <div className="text-center group">
                   <div className="inline-flex items-baseline justify-center mb-3">
-                    <span className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold text-accent mr-2 group-hover:scale-110 transition-transform duration-300">
+                    <span className="font-heading text-5xl md:text-6xl lg:text-8xl font-extrabold text-accent mr-2 group-hover:scale-110 transition-transform duration-300">
                       <AnimatedCounter value={100} suffix="%" />
                     </span>
                   </div>

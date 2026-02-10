@@ -43,7 +43,7 @@ export default function Footer() {
                 href="https://www.instagram.com/redprouniversal/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 group hover:scale-110 border border-white/10"
+                className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 group hover:scale-110 border border-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
                 aria-label="Síguenos en Instagram"
               >
                 <svg
@@ -59,7 +59,7 @@ export default function Footer() {
                 href={`https://wa.me/${CONTACT_INFO.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 group hover:scale-110 border border-white/10"
+                className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 group hover:scale-110 border border-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
                 aria-label="Contáctanos por WhatsApp"
               >
                 <svg
