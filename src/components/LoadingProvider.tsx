@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Loading from "./Loading";
 interface LoadingContextType {
   isLoading: boolean;
@@ -9,7 +9,6 @@ const LoadingContext = createContext<LoadingContextType>({
   isLoading: true,
   setIsLoading: () => {},
 });
-export const useLoading = () => useContext(LoadingContext);
 export default function LoadingProvider({
   children,
 }: {
@@ -18,18 +17,12 @@ export default function LoadingProvider({
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   useEffect(() => {
-    const startTime = Date.now();
-    const minLoadingTime = 300;
     let isPageLoaded = false;
     const handleLoadComplete = () => {
       if (isPageLoaded) return;
       isPageLoaded = true;
-      const elapsedTime = Date.now() - startTime;
-      const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
-      setTimeout(() => {
-        setIsLoading(false);
-        setTimeout(() => setShowContent(true), 100);
-      }, remainingTime);
+      setIsLoading(false);
+      setTimeout(() => setShowContent(true), 50);
     };
     if (typeof window !== "undefined") {
       if (document.readyState === "complete") {

@@ -163,7 +163,7 @@ export default function Services() {
                       +<AnimatedCounter value={500} />
                     </span>
                   </div>
-                  <div className="text-white text-base md:text-lg font-medium opacity-90">
+                  <div className="text-white text-lg md:text-xl font-medium opacity-90">
                     Clientes satisfechos
                   </div>
                   <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-3" />
@@ -174,7 +174,7 @@ export default function Services() {
                       +<AnimatedCounter value={7} />
                     </span>
                   </div>
-                  <div className="text-white text-base md:text-lg font-medium opacity-90">
+                  <div className="text-white text-lg md:text-xl font-medium opacity-90">
                     Años de experiencia
                   </div>
                   <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-3" />
@@ -185,7 +185,7 @@ export default function Services() {
                       <AnimatedCounter value={100} suffix="%" />
                     </span>
                   </div>
-                  <div className="text-white text-base md:text-lg font-medium opacity-90">
+                  <div className="text-white text-lg md:text-xl font-medium opacity-90">
                     Garantía de calidad
                   </div>
                   <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-3" />

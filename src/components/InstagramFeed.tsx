@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -28,6 +28,8 @@ export default function InstagramFeed() {
   const [selectedPost, setSelectedPost] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const fetchInstagramPosts = async () => {
@@ -71,12 +73,49 @@ export default function InstagramFeed() {
   useEffect(() => {
     if (selectedPost !== null) {
       document.body.style.overflow = "hidden";
+      // Auto-focus close button when modal opens
+      setTimeout(() => closeButtonRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = "";
     }
     return () => {
       document.body.style.overflow = "";
     };
+  }, [selectedPost]);
+
+  // Focus trap implementation
+  useEffect(() => {
+    if (selectedPost === null || !modalRef.current) return;
+
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+
+      const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (!focusableElements || focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (e.shiftKey) {
+        // Shift + Tab
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        // Tab
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleTabKey);
+    return () => document.removeEventListener("keydown", handleTabKey);
   }, [selectedPost]);
 
   const handleNext = () => {
@@ -316,13 +355,18 @@ export default function InstagramFeed() {
 
       {selectedPost !== null && posts[selectedPost] && (
         <div
+          ref={modalRef}
           className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-4"
           onClick={() => setSelectedPost(null)}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Vista de imagen de Instagram"
         >
           <button
+            ref={closeButtonRef}
             onClick={() => setSelectedPost(null)}
             className="absolute top-3 right-3 md:top-4 md:right-4 text-white hover:text-gray-300 transition-colors z-50 bg-black/50 backdrop-blur-sm rounded-full p-2 md:p-2.5 touch-manipulation"
             aria-label="Cerrar"

@@ -160,8 +160,6 @@ export default function ServiceBanners() {
                     alt="Instalación profesional de redes de seguridad para balcones con materiales certificados de alta resistencia"
                     fill
                     className="object-cover opacity-20"
-                    priority
-                    loading="eager"
                     quality={60}
                     sizes="100vw"
                   />
@@ -218,7 +216,7 @@ export default function ServiceBanners() {
                             <path d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span className="text-base md:text-xl lg:text-lg font-medium leading-relaxed">
+                        <span className="text-lg md:text-xl font-medium leading-relaxed">
                           {feature}
                         </span>
                       </motion.div>
@@ -417,7 +415,7 @@ export default function ServiceBanners() {
                             <path d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span className="text-base md:text-xl lg:text-lg font-medium leading-relaxed">
+                        <span className="text-lg md:text-xl font-medium leading-relaxed">
                           {feature}
                         </span>
                       </motion.div>
@@ -614,7 +612,7 @@ export default function ServiceBanners() {
                             <path d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span className="text-base md:text-xl lg:text-lg font-medium leading-relaxed">
+                        <span className="text-lg md:text-xl font-medium leading-relaxed">
                           {feature}
                         </span>
                       </motion.div>
