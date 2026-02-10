@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import LoadingProvider from "@/components/LoadingProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -65,7 +64,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased`}
       >
-        <LoadingProvider>{children}</LoadingProvider>
+        {children}
       </body>
     </html>
   );
