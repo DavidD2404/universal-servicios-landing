@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const response = await fetch(BEHOLD_FEED_URL, {
       next: {
-        revalidate: 3600, // Cache por 1 hora (3600 segundos)
+        revalidate: 3600, 
       },
     });
 
@@ -21,7 +21,7 @@ export async function GET() {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('Error fetching Instagram posts:', error);
+
     return NextResponse.json(
       { error: 'Failed to fetch Instagram posts' },
       { status: 500 }

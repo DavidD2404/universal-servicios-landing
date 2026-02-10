@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export default function About() {
   const features = [
@@ -18,8 +18,9 @@ export default function About() {
           <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
-      title: 'Seguridad Garantizada',
-      description: 'Instalaciones certificadas con materiales de primera calidad y garantía en todos nuestros trabajos.',
+      title: "Seguridad Garantizada",
+      description:
+        "Instalaciones certificadas con materiales de primera calidad y garantía en todos nuestros trabajos.",
     },
     {
       icon: (
@@ -35,8 +36,9 @@ export default function About() {
           <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Atención Inmediata',
-      description: 'Respuesta rápida a consultas y presupuestos sin cargo. Trabajamos con tu agenda.',
+      title: "Atención Inmediata",
+      description:
+        "Respuesta rápida a consultas y presupuestos sin cargo. Trabajamos con tu agenda.",
     },
     {
       icon: (
@@ -52,8 +54,9 @@ export default function About() {
           <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
-      title: 'Equipo Profesional',
-      description: 'Personal capacitado y con años de experiencia en el rubro de seguridad y climatización.',
+      title: "Equipo Profesional",
+      description:
+        "Personal capacitado y con años de experiencia en el rubro de seguridad y climatización.",
     },
     {
       icon: (
@@ -69,13 +72,17 @@ export default function About() {
           <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
         </svg>
       ),
-      title: 'Mejor Relación Precio-Calidad',
-      description: 'Precios competitivos sin comprometer la calidad de materiales e instalación.',
+      title: "Mejor Relación Precio-Calidad",
+      description:
+        "Precios competitivos sin comprometer la calidad de materiales e instalación.",
     },
   ];
 
   return (
-    <section id="nosotros" className="relative py-14 md:py-16 lg:py-20 bg-gradient-to-b from-white via-neutral-50 to-white overflow-hidden">
+    <section
+      id="nosotros"
+      className="relative py-14 md:py-16 lg:py-20 bg-gradient-to-b from-white via-neutral-50 to-white overflow-hidden"
+    >
       {/* Decorative Background */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
@@ -160,11 +167,16 @@ export default function About() {
                 </h3>
               </div>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed text-center max-w-4xl mx-auto">
-                En <span className="font-bold text-accent">Universal Servicios</span>, nos especializamos en brindar
-                tranquilidad y bienestar a nuestros clientes a través de soluciones de seguridad de alta
-                calidad. Nuestro compromiso es proteger lo que más te importa: tu familia, mascotas y
-                espacios, ofreciendo instalaciones profesionales respaldadas por años de experiencia
-                en Buenos Aires.
+                En{" "}
+                <span className="font-bold text-accent">
+                  Universal Servicios
+                </span>
+                , nos especializamos en brindar tranquilidad y bienestar a
+                nuestros clientes a través de soluciones de seguridad de alta
+                calidad. Nuestro compromiso es proteger lo que más te importa:
+                tu familia, mascotas y espacios, ofreciendo instalaciones
+                profesionales respaldadas por años de experiencia en Buenos
+                Aires.
               </p>
             </div>
           </motion.div>

@@ -1,12 +1,8 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-
+"use client";
+import { useEffect, useState } from "react";
 export default function Loading() {
   const [progress, setProgress] = useState(0);
-
   useEffect(() => {
-    // Simular progreso de carga
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -16,13 +12,10 @@ export default function Loading() {
         return prev + 10;
       });
     }, 150);
-
     return () => clearInterval(interval);
   }, []);
-
   return (
     <div className="fixed inset-0 z-[100] bg-primary flex flex-col items-center justify-center">
-      {/* Logo */}
       <div className="mb-8 text-center animate-pulse">
         <span className="block font-heading font-extrabold text-white text-4xl md:text-5xl tracking-tight">
           UNIVERSAL
@@ -31,16 +24,12 @@ export default function Loading() {
           SERVICIOS
         </span>
       </div>
-
-      {/* Barra de progreso */}
       <div className="w-64 md:w-80 h-2 bg-white/20 rounded-full overflow-hidden">
         <div
           className="h-full bg-yellow-400 transition-all duration-300 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>
-
-      {/* Texto de carga */}
       <p className="mt-6 text-white/80 text-sm md:text-base">
         Cargando {progress}%
       </p>

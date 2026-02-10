@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { CONTACT_INFO, WHATSAPP_MESSAGE } from '@/utils/constants';
+import { motion } from "framer-motion";
+import { CONTACT_INFO, WHATSAPP_MESSAGE } from "@/utils/constants";
 
 export default function WhatsAppButton() {
   const handleWhatsAppClick = () => {
     const url = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${WHATSAPP_MESSAGE}`;
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   return (
@@ -15,12 +15,12 @@ export default function WhatsAppButton() {
       <motion.button
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5, ease: 'easeOut' }}
+        transition={{ delay: 1, duration: 0.5, ease: "easeOut" }}
         onClick={handleWhatsAppClick}
         className="fixed bottom-6 landscape:bottom-3 right-6 landscape:right-3 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-lg transition-all duration-300 hover:scale-105 md:hidden group touch-manipulation focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
         aria-label="Contactar por WhatsApp"
         style={{
-          boxShadow: '0 4px 16px rgba(37, 211, 102, 0.3)',
+          boxShadow: "0 4px 16px rgba(37, 211, 102, 0.3)",
         }}
       >
         <svg
@@ -37,12 +37,12 @@ export default function WhatsAppButton() {
       <motion.button
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5, ease: 'easeOut' }}
+        transition={{ delay: 1, duration: 0.5, ease: "easeOut" }}
         onClick={handleWhatsAppClick}
         className="hidden md:flex fixed bottom-8 right-8 z-50 items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105 font-medium text-base group focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
         aria-label="Contactar por WhatsApp"
         style={{
-          boxShadow: '0 4px 16px rgba(37, 211, 102, 0.3)',
+          boxShadow: "0 4px 16px rgba(37, 211, 102, 0.3)",
         }}
       >
         <svg

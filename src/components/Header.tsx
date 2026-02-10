@@ -1,78 +1,67 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CONTACT_INFO, WHATSAPP_MESSAGE } from '@/utils/constants';
-
+"use client";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CONTACT_INFO, WHATSAPP_MESSAGE } from "@/utils/constants";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // Detectar scroll para efecto glassmorphism
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Bloquear scroll cuando el menú está abierto
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
-
   const handleWhatsAppClick = () => {
     const url = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${WHATSAPP_MESSAGE}`;
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      // Cerrar el menú mobile primero
       setIsMenuOpen(false);
-
-      // Esperar a que el menú se cierre y el body restaure el overflow
-      // La animación del menú es de 300ms, así que esperamos 350ms
       setTimeout(() => {
-        const headerHeight = 80; // Altura aproximada del header
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const headerHeight = 80;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
-
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }, 350);
     }
   };
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 backdrop-blur-md shadow-lg'
-          : 'bg-white shadow-md'
+          ? "bg-white/80 backdrop-blur-md shadow-lg"
+          : "bg-white shadow-md"
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex flex-col items-center leading-none cursor-pointer rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }
           >
             <span className="font-heading font-extrabold text-primary text-xl md:text-2xl tracking-tight">
               UNIVERSAL
@@ -81,22 +70,20 @@ export default function Header() {
               SERVICIOS
             </span>
           </motion.div>
-
-          {/* Desktop Navigation */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="hidden md:flex items-center gap-6 lg:gap-8"
           >
             <button
-              onClick={() => scrollToSection('servicios')}
+              onClick={() => scrollToSection("servicios")}
               className="text-neutral-700 hover:text-primary transition-all duration-300 font-medium relative group rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Servicios
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
             </button>
             <button
-              onClick={() => scrollToSection('nosotros')}
+              onClick={() => scrollToSection("nosotros")}
               className="text-neutral-700 hover:text-primary transition-all duration-300 font-medium relative group rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Nosotros
@@ -117,8 +104,6 @@ export default function Header() {
               Contactar
             </button>
           </motion.div>
-
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
@@ -141,13 +126,11 @@ export default function Header() {
             </svg>
           </button>
         </div>
-
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className="md:hidden mt-4 pb-4 space-y-3 relative z-50 overflow-hidden"
@@ -156,7 +139,7 @@ export default function Header() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
-                onClick={() => scrollToSection('servicios')}
+                onClick={() => scrollToSection("servicios")}
                 className="block w-full text-left px-4 py-3 text-neutral-700 hover:bg-secondary/10 hover:text-primary rounded-xl transition-all duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 Servicios
@@ -165,7 +148,7 @@ export default function Header() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.15 }}
-                onClick={() => scrollToSection('nosotros')}
+                onClick={() => scrollToSection("nosotros")}
                 className="block w-full text-left px-4 py-3 text-neutral-700 hover:bg-secondary/10 hover:text-primary rounded-xl transition-all duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 Nosotros
@@ -191,8 +174,6 @@ export default function Header() {
           )}
         </AnimatePresence>
       </nav>
-
-      {/* Overlay/Backdrop para mobile */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
