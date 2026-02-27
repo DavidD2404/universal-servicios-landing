@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.universalservicios.com.ar"),
+  metadataBase: new URL("https://www.universalservicios.com"),
   title: "Universal Servicios",
   description:
     "Especialistas en instalación de redes de seguridad, estructuras de aluminio y acero, e instalación de aires acondicionados en Buenos Aires, Argentina.",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_AR",
-    url: "https://www.universalservicios.com.ar",
+    url: "https://www.universalservicios.com",
     siteName: "Universal Servicios",
     title: "Universal Servicios - Redes de Seguridad y Aires Acondicionados",
     description:
@@ -59,11 +59,42 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Universal Servicios",
+    url: "https://www.universalservicios.com",
+    telephone: "+54 9 11 2659-8074",
+    email: "redprouniversal@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Buenos Aires",
+      addressCountry: "AR",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Buenos Aires",
+    },
+    description:
+      "Especialistas en instalación de redes de seguridad, estructuras de hierro y acero, e instalación de aires acondicionados en Buenos Aires, Argentina.",
+    knowsAbout: [
+      "Redes de seguridad",
+      "Estructuras de hierro",
+      "Estructuras de acero",
+      "Aires acondicionados",
+    ],
+    image: "https://www.universalservicios.com/images/gallery/trabajo-2.jpg",
+  };
+
   return (
     <html lang="es" className="scroll-smooth">
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>

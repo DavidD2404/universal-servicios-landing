@@ -1,10 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { CONTACT_INFO } from "@/utils/constants";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [showPrivacy, setShowPrivacy] = useState(false);
 
   return (
     <footer className="relative bg-gradient-to-br from-primary via-[#0A2647] to-primary-dark text-white py-14 md:py-16 lg:py-20 overflow-hidden">
@@ -181,14 +183,78 @@ export default function Footer() {
           className="relative"
         >
           <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8" />
-          <div className="text-center">
+          <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
             <p className="text-white/60 text-sm md:text-base">
               © {currentYear} Universal Servicios. Todos los derechos
               reservados.
             </p>
+            <span className="hidden sm:inline text-white/30">|</span>
+            <button
+              onClick={() => setShowPrivacy(true)}
+              className="text-white/60 hover:text-white text-sm md:text-base transition-colors underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary rounded"
+            >
+              Política de Privacidad
+            </button>
           </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {showPrivacy && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setShowPrivacy(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl max-h-[80vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="font-heading font-bold text-xl md:text-2xl text-primary">
+                  Política de Privacidad
+                </h2>
+                <button
+                  onClick={() => setShowPrivacy(false)}
+                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                  aria-label="Cerrar"
+                >
+                  <svg className="w-5 h-5 text-neutral-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="space-y-4 text-neutral-600 text-sm md:text-base leading-relaxed">
+                <p>
+                  <strong>Universal Servicios</strong> no recopila, almacena ni procesa datos personales a través de este sitio web.
+                </p>
+                <p>
+                  Este sitio no utiliza cookies de seguimiento, formularios de registro ni bases de datos de usuarios.
+                </p>
+                <p>
+                  Los botones de contacto por WhatsApp redirigen directamente a la aplicación WhatsApp, donde la comunicación se rige por las políticas de privacidad de Meta/WhatsApp.
+                </p>
+                <p>
+                  El feed de Instagram mostrado en este sitio se obtiene a través de la API pública de Instagram y no implica recopilación de datos de los visitantes.
+                </p>
+                <p>
+                  Para consultas sobre privacidad, podés contactarnos a <a href={`mailto:${CONTACT_INFO.email}`} className="text-primary hover:underline font-medium">{CONTACT_INFO.email}</a>.
+                </p>
+                <p className="text-neutral-400 text-xs mt-6">
+                  Última actualización: {new Date().toLocaleDateString("es-AR", { month: "long", year: "numeric" })}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }

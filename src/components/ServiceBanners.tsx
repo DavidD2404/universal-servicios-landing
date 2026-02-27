@@ -4,13 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CONTACT_INFO } from "@/utils/constants";
 import Image from "next/image";
 export default function ServiceBanners() {
+  const TOTAL_SLIDES = 4;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 3);
+      setCurrentSlide((prev) => (prev + 1) % TOTAL_SLIDES);
     }, 8000);
     return () => clearInterval(interval);
   }, [isPaused]);
@@ -18,9 +19,9 @@ export default function ServiceBanners() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
-        setCurrentSlide((prev) => (prev - 1 + 3) % 3);
+        setCurrentSlide((prev) => (prev - 1 + TOTAL_SLIDES) % TOTAL_SLIDES);
       } else if (e.key === "ArrowRight") {
-        setCurrentSlide((prev) => (prev + 1) % 3);
+        setCurrentSlide((prev) => (prev + 1) % TOTAL_SLIDES);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -28,11 +29,11 @@ export default function ServiceBanners() {
   }, []);
 
   const goToPrevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + 3) % 3);
+    setCurrentSlide((prev) => (prev - 1 + TOTAL_SLIDES) % TOTAL_SLIDES);
   };
 
   const goToNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % 3);
+    setCurrentSlide((prev) => (prev + 1) % TOTAL_SLIDES);
   };
   const handleWhatsApp = (service: string) => {
     const message = encodeURIComponent(
@@ -46,9 +47,9 @@ export default function ServiceBanners() {
   const handleDragEnd = (_: any, { offset, velocity }: any) => {
     const swipe = Math.abs(offset.x) * velocity.x;
     if (swipe < -3000) {
-      setCurrentSlide((prev) => (prev + 1) % 3);
+      setCurrentSlide((prev) => (prev + 1) % TOTAL_SLIDES);
     } else if (swipe > 3000) {
-      setCurrentSlide((prev) => (prev - 1 + 3) % 3);
+      setCurrentSlide((prev) => (prev - 1 + TOTAL_SLIDES) % TOTAL_SLIDES);
     }
   };
   return (
@@ -649,6 +650,207 @@ export default function ServiceBanners() {
               </div>
             </motion.div>
           )}
+          {currentSlide === 3 && (
+            <motion.div
+              key="slide-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={handleDragEnd}
+              className="lg:cursor-grab lg:active:cursor-grabbing absolute top-0 left-0 right-0 h-[500px] sm:h-[560px] md:h-[680px] lg:h-[600px]"
+            >
+              <div className="hidden lg:block">
+                <div className="relative h-[600px] bg-primary-darker overflow-hidden">
+                  <div className="absolute inset-0 flex">
+                    <div className="w-[50%] flex items-center pl-16 pr-8 py-12 text-white z-10">
+                      <div className="pt-8">
+                        <motion.h2
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.2 }}
+                          className="font-heading text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                        >
+                          ESTRUCTURAS
+                          <br />
+                          DE HIERRO{" "}
+                          <span className="text-accent">A MEDIDA</span>
+                        </motion.h2>
+                        <motion.p
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.3 }}
+                          className="text-xl mb-8 text-neutral-200"
+                        >
+                          Diseñadas para máxima resistencia
+                          <br />
+                          y durabilidad garantizada
+                        </motion.p>
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.6, delay: 0.4 }}
+                          className="mb-6 space-y-3"
+                        >
+                          {[
+                            "Hierro de alta resistencia",
+                            "Fácil mantenimiento",
+                            "Firme y seguro",
+                            "Instalación a medida",
+                          ].map((feature, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{
+                                delay: 0.5 + i * 0.1,
+                                duration: 0.5,
+                              }}
+                              className="flex items-center gap-3"
+                            >
+                              <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg
+                                  className="w-4 h-4 text-primary"
+                                  fill="none"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="3"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path d="M5 13l4 4L19 7" />
+                                </svg>
+                              </div>
+                              <span className="text-lg font-medium">
+                                {feature}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                        <motion.button
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.9 }}
+                          onClick={() =>
+                            handleWhatsApp("Estructuras de Hierro")
+                          }
+                          className="bg-accent text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-dark transition-all shadow-xl hover:shadow-2xl touch-manipulation focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                        >
+                          ¡Consultar por Estructuras!
+                        </motion.button>
+                      </div>
+                    </div>
+                    <div className="w-[55%] relative">
+                      <div className="absolute inset-0">
+                        <Image
+                          src="/images/gallery/trabajo-4.jpeg"
+                          alt="Estructura de hierro profesional para soporte de redes de seguridad en balcones y terrazas de edificios"
+                          fill
+                          className="object-cover"
+                          style={{
+                            clipPath: "polygon(12% 0, 100% 0, 100% 100%, 0 100%)",
+                          }}
+                          quality={85}
+                          sizes="(max-width: 768px) 100vw, 55vw"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:hidden relative overflow-hidden">
+                <div className="absolute inset-0">
+                  <Image
+                    src="/images/gallery/trabajo-4.jpeg"
+                    alt="Estructura de hierro profesional para redes de seguridad en balcones y terrazas"
+                    fill
+                    className="object-cover opacity-50"
+                    quality={60}
+                    sizes="100vw"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-b from-primary-darker/50 via-primary-darker/60 to-primary-darker/95" />
+                <div className="relative z-10 p-6 md:p-10 py-10 pb-12 text-white h-[500px] sm:h-[560px] md:h-[680px] flex flex-col justify-between overflow-hidden">
+                  <motion.h2
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="font-heading text-4xl md:text-6xl font-bold mb-4 md:mb-8 leading-tight"
+                  >
+                    LA BASE DE
+                    <br />
+                    TU SEGURIDAD
+                  </motion.h2>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="text-lg md:text-2xl lg:text-xl mb-6 md:mb-10 leading-relaxed"
+                  >
+                    Estructuras de hierro a medida, diseñadas para máxima
+                    resistencia y durabilidad
+                  </motion.p>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="mb-8 space-y-2 md:space-y-4 flex-grow"
+                  >
+                    {[
+                      "Hierro de alta resistencia",
+                      "Fácil mantenimiento",
+                      "Firme y seguro",
+                      "Instalación a medida",
+                    ].map((feature, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: 0.5 + i * 0.1,
+                          duration: 0.5,
+                        }}
+                        className="flex items-center gap-3"
+                      >
+                        <div className="w-6 h-6 md:w-7 md:h-7 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                          <svg
+                            className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="3"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="text-lg md:text-xl font-medium leading-relaxed">
+                          {feature}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                  <motion.button
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                    onClick={() =>
+                      handleWhatsApp("Estructuras de Hierro")
+                    }
+                    className="w-full bg-accent text-primary px-6 py-4 rounded-full font-bold text-base md:text-lg hover:bg-accent-dark transition-colors shadow-lg touch-manipulation focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                  >
+                    ¡Consultar por Estructuras!
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
         <div className="relative z-10 flex justify-center items-center gap-3 mt-6 pb-4">
           <button
@@ -669,7 +871,7 @@ export default function ServiceBanners() {
             </svg>
           </button>
           <div className="flex gap-2">
-            {[0, 1, 2].map((index) => (
+            {[0, 1, 2, 3].map((index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
